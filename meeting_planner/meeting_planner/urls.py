@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from website.views import welcome # Import the welcome view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("welcome.html", welcome), # Add a URL pattern for the welcome view
 ]
