@@ -5,3 +5,7 @@ from django.http import HttpResponse
 # Add a welcome view
 def welcome(request):
     return HttpResponse("Welcome to the meeting planner!")
+
+# Add about page with some text
+def about(request):
+    return HttpResponse("This is a meeting planner project created using Django.")

@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from website.views import welcome # Import the welcome view
+from website.views import about # Import the about view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("welcome.html", welcome), # Add a URL pattern for the welcome view
+    path("", welcome), # Add a URL pattern for the welcome view
+    path("about", about), # Add a URL pattern for the about view
 ]
