@@ -9,7 +9,7 @@ from meetings.models import Meeting
 def welcome(request):
     return render(
         request, template_name="website/welcome.html",
-        context={"num_meetings": Meeting.objects.count()},
+        context={"meetings": Meeting.objects.all()},
         )
 
 # Add about page with some text

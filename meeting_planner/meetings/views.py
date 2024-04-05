@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 # Add the Meeting model
-from meetings.models import Meeting
+from meetings.models import Meeting, Room
 
 # Create your views here.
 def detail(request, id):
@@ -10,4 +10,11 @@ def detail(request, id):
     return render(
         request, template_name="meetings/details.html",
         context={"meeting": meeting},
+    )
+    
+# Add a new page that shows a list of all room objects
+def rooms(request):
+    return render(
+        request, template_name="meetings/rooms.html",
+        context={"rooms": Room.objects.all()},
     )
