@@ -6,6 +6,12 @@
         This meeting has been scheduled on {{meeting.date}}, at 
         {{meeting.time}} in <strong>{{meeting.room}}</strong>.
     </p>
+    <h2>Participants</h2>
+    <ul>
+        {% for participant in meeting.participants.all %}
+            <li>{{participant.username}}</li>
+        {% endfor %}
+    </ul>
     <p>
         <a href="{% url 'home' %}">Home</a>
         &nbsp;

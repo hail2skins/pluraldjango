@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include # Import the include function
 from website.views import welcome # Import the welcome view
 from website.views import about # Import the about view
+import django.contrib.auth.urls # Import the authentication views provided by Django
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", welcome, name="home"), # Add a URL pattern for the welcome view
     path("about", about), # Add a URL pattern for the about view
     path('meetings/', include('meetings.urls')), # Add a URL pattern for the meetings app which imports urls.py from the meetings app
+    path('auth/', include('django.contrib.auth.urls')) # Add a URL pattern for the authentication views that are provided by Django
 ]

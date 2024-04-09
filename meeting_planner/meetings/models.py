@@ -1,6 +1,8 @@
 from django.db import models
 
 from datetime import time # Import the time class from the datetime module
+# Import the get_user_model function from the django.contrib.auth module
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 # Add meeting class to models.py
@@ -10,6 +12,7 @@ class Meeting(models.Model):
     start_time = models.TimeField(default=time(9))
     duration = models.IntegerField(default=1)
     room = models.ForeignKey("Room", on_delete=models.CASCADE) # Add a foreign key to the Room model
+    participants = models.ManyToManyField(get_user_model()) # Add a many-to-many field to the User model. get_user_model() is a helper function that returns the User model that is active in this project
 
     def __str__(self):
         return f"{self.title} on {self.date} at {self.start_time} on {self.date}" # Return a string representation of the meeting object in the admin site
